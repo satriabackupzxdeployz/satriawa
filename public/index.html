@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Satriawa - Chat Sederhana</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="authOverlay" class="overlay active">
+        <div class="auth-box">
+            <h2>✧ SATRIAWA ✧</h2>
+            <p style="margin-bottom: 20px;">Masuk pake nama aja</p>
+            
+            <input type="text" id="userNameInput" placeholder="Nama kamu..." autocomplete="off">
+            
+            <button id="enterBtn">MASUK</button>
+            
+            <div id="statusMsg" style="margin-top: 15px; color: #ffaa00; font-size: 14px;"></div>
+        </div>
+    </div>
+
+    <div id="mainApp" style="display: none;">
+        <div class="iphone-notch">
+            <div class="status-left" id="currentTime"></div>
+            <div class="status-right">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <div class="battery-container">
+                    <div class="battery-icon">
+                        <div class="battery-level" id="batteryLevel"></div>
+                    </div>
+                    <span id="batteryPercent">100%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="wa-container">
+            <div class="tabs-container">
+                <div class="header">
+                    <div class="header-title">Satriawa</div>
+                    <div class="header-actions">
+                        <i class="fas fa-plus" id="newChatIcon"></i>
+                        <i class="fas fa-sign-out-alt" id="logoutBtn" style="color:#FF3B30;"></i>
+                    </div>
+                </div>
+
+                <div class="wa-tabs">
+                    <div class="wa-tab active" data-tab="chats">Chats</div>
+                    <div class="wa-tab" data-tab="updates">Updates</div>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="chatsTab">
+                        <div class="chat-list" id="chatList"></div>
+                    </div>
+                    <div class="tab-pane" id="updatesTab">
+                        <div class="updates-content">
+                            <div class="stories-header">
+                                <div class="stories-title">Status</div>
+                                <div class="stories-list" id="storiesList">
+                                    <div class="story-item my-status" id="myStatusBtn">
+                                        <div class="story-avatar">
+                                            <img id="myStatusImg" src="https://files.clugo.my.id/Rwj8w.jpeg">
+                                        </div>
+                                        <div class="story-name">Statusku</div>
+                                    </div>
+                                </div>
+                                <input type="file" id="statusUploadInput" accept="image/*,video/*" style="display:none;">
+                            </div>
+                            <div class="updates-list" id="updatesList"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-page" id="chatPage">
+                <div class="chat-header-main">
+                    <div class="back-button" id="backButton">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="chat-contact">
+                        <img id="activeChatAvatar" src="">
+                        <div class="contact-info">
+                            <h3 id="activeChatName"></h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="messages-wrapper" id="messagesContainer">
+                    <div class="encryption-notice">
+                        <i class="fas fa-lock"></i> Chat sederhana
+                    </div>
+                </div>
+
+                <div class="input-area">
+                    <div class="message-input-container">
+                        <textarea id="messageInput" placeholder="Ketik pesan..." rows="1"></textarea>
+                    </div>
+                    <div class="send-button active" id="sendButton">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
